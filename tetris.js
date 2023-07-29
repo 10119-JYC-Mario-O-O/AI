@@ -229,7 +229,7 @@ function renderBlocks(moveType = '') {
             if (moveType === 'retry') {
                 clearInterval(downInterval);
 
-                showGameoverText();
+                showGameOverText();
             }
 
             setTimeout(() => {
@@ -335,7 +335,7 @@ function dropBlock() {
     }, 10);
 }
 
-function showGameoverText() {
+function showGameOverText() {
     gameText.style.display = 'flex';
 }
 
