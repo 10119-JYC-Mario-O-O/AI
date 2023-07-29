@@ -196,6 +196,8 @@ function prependNewLine() {
 }
 
 function init() {
+    score = 0;
+
     tempMovingItem = { ...MovingItem };
 
     for (let i = 0; i < matrix_height; i++) {
@@ -329,11 +331,12 @@ function dropBlock() {
 
     downInterval = setInterval(() => {
         moveBlock('top', 1);
+        score += 2;
     }, 10);
 }
 
 function showGameoverText() {
-    gameText.computedStyleMap.display = 'flex';
+    gameText.style.display = 'flex';
 }
 
 document.addEventListener('keydown', (e) => {
@@ -365,7 +368,7 @@ document.addEventListener('keydown', (e) => {
 
 retryButton.addEventListener('click', () => {
     playground.innerHTML = '';
-    gameText.computedStyleMap.display = 'none';
+    gameText.style.display = 'none';
     init();
 });
 
