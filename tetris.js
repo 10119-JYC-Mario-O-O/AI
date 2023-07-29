@@ -182,12 +182,13 @@ let duration = 500;
 let downInterval;
 let tempMovingItem;
 
-function prependNewLine() {
+function prependNewLine(i) {
     const li = document.createElement('li');
     const ul = document.createElement('ul');
 
     for (let j = 0; j < matrix_width; j++) {
         const matrix = document.createElement('li');
+        matrix.classList.add((matrix_width * matrix_height ) - ((i + 1) * matrix_width) + (matrix_width - j));
         ul.prepend(matrix);
     }
 
@@ -201,7 +202,7 @@ function init() {
     tempMovingItem = { ...MovingItem };
 
     for (let i = 0; i < matrix_height; i++) {
-        prependNewLine();
+        prependNewLine(i);
     }
 
     generateNewBlock();
